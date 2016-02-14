@@ -12,13 +12,27 @@ class Todo extends ReduceStore {
 
   reduce(state, action) {
     switch (action.type) {
-    case types.ADD_TODO:
+
+    case types.FETCH_TODOS:
       return Object.assign({}, state, {
-        todos: [...state.todos, {
-          id: Date.now(),
-          title: action.title,
-          complete: false
-        }]
+        todos: action.todos
+      });
+
+    case types.CREATE_TODO:
+      return Object.assign({}, state, {
+        todos: [...state.todos, { ...action.data }]
+      });
+
+    case types.UPDATE_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.map(todo => {
+          if (todo.id === action.data.id) {
+            console.log(todo);
+            console.log(action);
+            return Object.assign({}, todo, action.data);
+          }
+          return todo;
+        })
       });
 
     case types.DELETE_TODO:
@@ -26,16 +40,10 @@ class Todo extends ReduceStore {
         todos: state.todos.filter(todo => todo.id !== action.id)
       });
 
-    case types.CHANGE_COMPLETE:
-      return Object.assign({}, state, {
-        todos: state.todos.map(todo => todo.id === action.id ?
-          Object.assign(todo, { complete: !todo.complete }) : todo)
-      });
-
     default:
       return state;
-    }
 
+    }
   }
 }
 

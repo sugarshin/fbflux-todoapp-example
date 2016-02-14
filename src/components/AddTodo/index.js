@@ -16,7 +16,7 @@ export default class AddTodo extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <input type="text" ref="input" placeholder="Todo name" />
+        <input type="text" ref="input" placeholder="Todo title" />
         <button className={styles.button} onClick={this.handleClickButton}>Add</button>
       </div>
     );
@@ -24,5 +24,6 @@ export default class AddTodo extends Component {
 
   handleClickButton() {
     this.props.onClickAddButton(this.refs.input.value);
+    this.refs.input.value = '';
   }
 }

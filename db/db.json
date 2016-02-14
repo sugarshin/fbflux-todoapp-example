@@ -1,0 +1,40 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "お風呂掃除",
+      "complete": true,
+      "archive": false
+    },
+    {
+      "id": 2,
+      "title": "英語の勉強",
+      "complete": false,
+      "archive": false
+    },
+    {
+      "title": "test",
+      "complete": false,
+      "archive": true,
+      "id": 3
+    },
+    {
+      "title": "課題図書",
+      "complete": false,
+      "archive": false,
+      "id": 4
+    },
+    {
+      "title": "run",
+      "complete": false,
+      "archive": false,
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "aoi"
+    }
+  ]
+}

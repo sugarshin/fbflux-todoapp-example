@@ -1,23 +1,57 @@
 import dispatcher from '../dispatcher';
 import * as types from '../constants/action-types';
+import Todos from '../apis/Todos';
 
-export const addTodo = title => {
+const dispatchCreation = data => {
   dispatcher.dispatch({
-    type: types.ADD_TODO,
-    title
+    type: types.CREATE_TODO,
+    data
   });
 };
 
-export const deleteTodo = id => {
+const dispatchUpdate = data => {
+  dispatcher.dispatch({
+    type: types.UPDATE_TODO,
+    data
+  });
+}
+
+const dispatchDelete = id => {
   dispatcher.dispatch({
     type: types.DELETE_TODO,
     id
   });
+}
+
+export const fetchTodos = () => {
+  Todos.GET().then(todos => {
+    dispatcher.dispatch({
+      type: types.FETCH_TODOS,
+      todos
+    });
+  });
 };
 
-export const changeComplete = id => {
-  dispatcher.dispatch({
-    type: types.CHANGE_COMPLETE,
-    id
-  });
+export const createTodo = title => {
+  if (!title.trim()) { return; }
+  Todos.POST({
+    title,
+    complete: false,
+    archive: false
+  })
+    .then(res => res.json())
+    .then(data => dispatchCreation(data));
+}
+
+export const updateTodo = (id, data) => {
+  Todos.PATCH(id, data)
+    .then(res => res.json())
+    .then(data => {
+      dispatchUpdate(data);
+    });
+};
+
+export const deleteTodo = id => {
+  Todos.DELETE(id)
+    .then(() => dispatchDelete(id));
 };

@@ -7,7 +7,7 @@ export default class Todo extends Component {
       title: PropTypes.string.isRequired,
       complete: PropTypes.bool.isRequired,
       onClickCheckbox: PropTypes.func.isRequired,
-      onClickDelete: PropTypes.func.isRequired
+      onClickArchive: PropTypes.func.isRequired
     };
   }
 
@@ -21,16 +21,16 @@ export default class Todo extends Component {
       }}>
         <input type="checkbox" checked={complete} onChange={this.handleClickCheckbox.bind(this)} />
         <span>{title}</span>
-        <button onClick={this.handleClickDelete.bind(this)}>Delete</button>
+        <button onClick={this.handleClickArchive.bind(this)}>Archive</button>
       </div>
     );
   }
 
   handleClickCheckbox() {
-    this.props.onClickCheckbox(this.props.id);
+    this.props.onClickCheckbox(this.props.id, { complete: !this.props.complete });
   }
 
-  handleClickDelete() {
-    this.props.onClickDelete(this.props.id);
+  handleClickArchive() {
+    this.props.onClickArchive(this.props.id, { archive: true });
   }
 }

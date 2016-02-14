@@ -27,8 +27,6 @@ class Todo extends ReduceStore {
       return Object.assign({}, state, {
         todos: state.todos.map(todo => {
           if (todo.id === action.data.id) {
-            console.log(todo);
-            console.log(action);
             return Object.assign({}, todo, action.data);
           }
           return todo;

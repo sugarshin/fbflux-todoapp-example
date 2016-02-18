@@ -1,5 +1,4 @@
 import 'babel-polyfill';
-import es6promise from 'es6-promise';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory, useRouterHistory } from 'react-router';
@@ -8,8 +7,6 @@ import App from './containers/App'
 import TodoList from './containers/TodoList'
 import ArchivedTodoList from './containers/ArchivedTodoList'
 import ApiBase from './apis/Base';
-
-es6promise.polyfill();
 
 global.fetch = null;
 require('whatwg-fetch');

@@ -3,7 +3,7 @@ import types from '../constants/action-types';
 import dispatcher from '../dispatcher';
 import { todos as initialState } from '../constants/initial-state';
 
-class Todo extends ReduceStore {
+export default new class Todo extends ReduceStore {
   getInitialState() {
     return {
       todos: initialState
@@ -43,6 +43,4 @@ class Todo extends ReduceStore {
 
     }
   }
-}
-
-export default new Todo(dispatcher);
+}(dispatcher);

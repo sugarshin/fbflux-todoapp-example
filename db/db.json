@@ -4,17 +4,17 @@
       "id": 1,
       "title": "お風呂掃除",
       "complete": true,
-      "archive": false
+      "archive": true
     },
     {
       "id": 2,
       "title": "英語の勉強",
-      "complete": false,
+      "complete": true,
       "archive": false
     },
     {
       "title": "課題図書",
-      "complete": false,
+      "complete": true,
       "archive": false,
       "id": 4
     },
@@ -35,6 +35,12 @@
       "complete": false,
       "archive": false,
       "id": 8
+    },
+    {
+      "title": "TCP/IP",
+      "complete": false,
+      "archive": false,
+      "id": 9
     }
   ],
   "users": [

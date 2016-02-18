@@ -29,7 +29,7 @@ export default {
   output: {
     path: path.resolve(path.resolve(__dirname, '..', buildDir, 'assets')),
     filename: production ? 'app-[hash].js' : 'app.js',
-    publicPath: '/assets/'
+    publicPath: 'assets/'
   },
   display: { errorDetails: true },
   resolve: {
@@ -61,13 +61,11 @@ export default {
         loaders: ['style', cssLoader, 'postcss-loader', 'stylus']
       },
       {
-        test: /\.(jpg|png|gif$)/,
-        loader: 'url',
-        query: { limit: 102400 }
-      },
-      {
-        test: /\.svg/,
-        loader: 'file'
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loaders: [
+          'url?limit=102400&hash=sha512&digest=hex&name=[name]__[hash].[ext]',
+          'image-webpack?progressive&bypassOnDebug&optimizationLevel=7'
+        ]
       }
     ]
   },

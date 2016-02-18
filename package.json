@@ -37,6 +37,7 @@
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-react": "^3.16.1",
     "file-loader": "^0.8.5",
+    "image-webpack-loader": "^1.6.3",
     "jade": "^1.11.0",
     "json-server": "^0.8.8",
     "postcss-loader": "^0.8.1",

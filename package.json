@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.5.0",
     "flux": "^2.1.1",
     "history": "^2.0.0",
+    "mirror-key-value": "^1.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
@@ -35,6 +36,7 @@
     "eslint-loader": "^1.2.1",
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-react": "^3.16.1",
+    "file-loader": "^0.8.5",
     "jade": "^1.11.0",
     "json-server": "^0.8.8",
     "postcss-loader": "^0.8.1",
@@ -43,6 +45,7 @@
     "stylint-loader": "^1.0.0",
     "stylint-stylish": "^1.2.0",
     "stylus-loader": "^1.5.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   }

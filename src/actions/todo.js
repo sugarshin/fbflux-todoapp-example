@@ -1,5 +1,5 @@
 import dispatcher from '../dispatcher';
-import * as types from '../constants/action-types';
+import types from '../constants/action-types';
 import Todos from '../apis/Todos';
 
 const dispatchCreation = data => {

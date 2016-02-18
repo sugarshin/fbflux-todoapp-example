@@ -59,6 +59,15 @@ export default {
       {
         test: /\.styl$/,
         loaders: ['style', cssLoader, 'postcss-loader', 'stylus']
+      },
+      {
+        test: /\.(jpg|png|gif$)/,
+        loader: 'url',
+        query: { limit: 102400 }
+      },
+      {
+        test: /\.svg/,
+        loader: 'file'
       }
     ]
   },

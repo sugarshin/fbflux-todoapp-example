@@ -1,4 +1,8 @@
-export const FETCH_TODOS = 'FETCH_TODOS';
-export const CREATE_TODO = 'CREATE_TODO';
-export const UPDATE_TODO = 'UPDATE_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
+import mirrorKeyValue from 'mirror-key-value';
+
+export default mirrorKeyValue([
+  'FETCH_TODOS',
+  'CREATE_TODO',
+  'UPDATE_TODO',
+  'DELETE_TODO'
+]);

@@ -1,5 +1,5 @@
 import { ReduceStore } from 'flux/utils';
-import * as types from '../constants/action-types';
+import types from '../constants/action-types';
 import dispatcher from '../dispatcher';
 import { todos as initialState } from '../constants/initial-state';
 

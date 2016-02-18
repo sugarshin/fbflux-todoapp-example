@@ -4,17 +4,13 @@ import autoprefixer from 'autoprefixer';
 import cssMqpacker from 'css-mqpacker';
 import stylintrc from './.stylintrc';
 
-const production = process.env.npm_config_production === 'true';
+const production = process.env.NODE_ENV === 'production';
 const cssModules = 'modules&importLoaders=1&localIdentName=[path][name]__[local]___[hash:base64:8]';
 const cssLoader = production ?
   `css-loader?minimize&${cssModules}` : `css-loader?${cssModules}`;
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
-const plugins = [
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  })
-];
+const plugins = [];
 const entries = ['./src/index.js'];
 if (production) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));

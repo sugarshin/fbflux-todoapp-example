@@ -20,10 +20,10 @@ export default class Todos extends Base {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    });
+    })
+      .then(res => res.json());
   }
 
-  // 本来はPATCH
   static PUT(id, payload) {
     return fetch(`${Todos.apiBase}/${Todos.path}/${id}`, {
       method: 'put',
@@ -32,7 +32,8 @@ export default class Todos extends Base {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    });
+    })
+    .then(res => res.json());
   }
 
   static PATCH(id, payload) {
@@ -43,7 +44,8 @@ export default class Todos extends Base {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    });
+    })
+      .then(res => res.json());
   }
 
   static DELETE(id) {

@@ -39,19 +39,20 @@ export const createTodo = title => {
     complete: false,
     archive: false
   })
-    .then(res => res.json())
     .then(data => dispatchCreation(data));
 }
 
 export const updateTodo = (id, data) => {
-  Todos.PATCH(id, data)
-    .then(res => res.json())
-    .then(data => {
-      dispatchUpdate(data);
-    });
+  Todos.PATCH(id, data).then(data => dispatchUpdate(data));
+};
+
+export const replaceTodo = (id, todo) => {
+  Todos.PUT(id, todo).then(data => dispatchUpdate(data));
 };
 
 export const deleteTodo = id => {
   Todos.DELETE(id)
-    .then(() => dispatchDelete(id));
+    .then(res => {
+      if (res.ok) { dispatchDelete(id); }
+    });
 };

@@ -13,12 +13,6 @@
       "archive": false
     },
     {
-      "title": "test",
-      "complete": false,
-      "archive": true,
-      "id": 3
-    },
-    {
       "title": "課題図書",
       "complete": false,
       "archive": false,
@@ -29,6 +23,18 @@
       "complete": false,
       "archive": false,
       "id": 5
+    },
+    {
+      "title": "miki",
+      "complete": false,
+      "archive": false,
+      "id": 7
+    },
+    {
+      "title": "aoi",
+      "complete": false,
+      "archive": false,
+      "id": 8
     }
   ],
   "users": [

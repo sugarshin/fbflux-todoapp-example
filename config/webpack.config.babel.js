@@ -1,13 +1,9 @@
 import path from 'path';
 import webpack from 'webpack';
-import autoprefixer from 'autoprefixer';
-import cssMqpacker from 'css-mqpacker';
-import stylintrc from './.stylintrc';
 
 const production = process.env.NODE_ENV === 'production';
 const cssModules = 'modules&importLoaders=1&localIdentName=[path][name]__[local]___[hash:base64:8]';
-const cssLoader = production ?
-  `css-loader?minimize&${cssModules}` : `css-loader?${cssModules}`;
+const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
 const plugins = [];
@@ -40,7 +36,7 @@ export default {
       {
         test: /\.styl$/,
         loader: 'stylint',
-        query: stylintrc,
+        query: require('./.stylintrc'),
         exclude: /node_modules/,
       },
       {
@@ -58,7 +54,7 @@ export default {
       },
       {
         test: /\.styl$/,
-        loaders: ['style', cssLoader, 'postcss-loader', 'stylus']
+        loaders: ['style', cssLoader, 'postcss', 'stylus']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -70,8 +66,8 @@ export default {
     ]
   },
   postcss: () => [
-    autoprefixer({ browsers: ['last 2 versions'] }),
-    cssMqpacker()
+    require('autoprefixer')({ browsers: ['last 2 versions'] }),
+    require('css-mqpacker')()
   ],
   eslint: { configFile: './config/.eslintrc' },
   devServer: {

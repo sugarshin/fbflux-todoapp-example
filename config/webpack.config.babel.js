@@ -23,7 +23,7 @@ export default {
   cache: true,
   entry: entries,
   output: {
-    path: path.resolve(path.resolve(__dirname, '..', buildDir, 'assets')),
+    path: path.resolve(__dirname, '..', buildDir, 'assets'),
     filename: production ? 'app-[hash].js' : 'app.js',
     publicPath: 'assets/'
   },
